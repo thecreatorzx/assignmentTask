@@ -7,13 +7,16 @@
 
 
 
-
+/* important */
+.hidden {
+  display: none !important; 
+}
 /* Header */
 .headerPage{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1.5vh 2.5vh;
+  padding: 10px 15px;
   font-size: 1.2rem;
   border-bottom: 1px solid #3333;
  
@@ -33,16 +36,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 10px;
-  padding: 9px;
-  width: 35px;
-  height: 35px;
+  margin-left: 2vw;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 .headerPage .header-options>*:hover,
 .header-options>*:focus{
   cursor: pointer;
-  background: #3332;
 }
 .headerPage .header-options .profile-button{
   background: silver;
@@ -60,12 +61,17 @@
 .headerPage .header-options .profile-button{
   background: silver;
 }
+.profile-cover {
+  width: 30px;
+  height: 30px;
+  background: #3332;
+  border-radius: 50%;
+}
 .searchbox{
-  display: none;
   position: absolute;
   left: 0;
   width: 100vw;
-  height: 8vh;
+  height: 55px;
 }
 .searchbox #searchbox{
   width: 100%;
@@ -80,14 +86,14 @@
 }
 .searchbox .closebtn {
   position: absolute;
-  right: 3vh;
-  top: 2vh;
+  right: 20px;
+  top: 10px;
   font-size: 1.4rem;
   color: #3339;
 }
 
 .themebox{
-  display: none;
+  display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   position: absolute;
@@ -118,12 +124,10 @@
   color: #7367f0;
 }
 .shortcutbox{
-  display: none;
   position: absolute;
-  width: 45vh;
-  height: 60vh;
-  top: 7vh;
-  transform: translate(-150px,0px);
+  width: 330px;
+  height: 440px;
+  transform: translate(-150px,243px);
   border-radius: 6px;
   box-shadow: 0 0 10px 0 #3333;
   background: white;
@@ -176,12 +180,10 @@
   background: #3331;
 }
 .notificationbox{
-  display: none;
   position: absolute;
-  top: 7vw;
-  transform: translate(-190px, 0);
-  width: 55vh;
-  height: 65vh;
+  transform: translate(-190px, 260px);
+  width: 400px;
+  height: 475px;
   border-radius: 6px;
   cursor:auto;
   box-shadow: 0 0 15px 0 #3333;
@@ -231,7 +233,7 @@
   align-items: center;
   padding: 15px;
   width: 100%;
-  height: 15vh;
+  height: 30%;
   border-bottom: 1px solid #3333;
 }
 .notificationbox .main .notification .img{
@@ -267,29 +269,39 @@
 }
 
 .profilebox {
-  display: none;
   position: absolute;
-  width: 30vh;
-  height: 50vh;
-  top: 7vh;
-  right: 3vh;
+  width: 220px;
+  height: 360px;
+  transform: translate(-90px,205px);
   border-radius: 6px;
   background: white;
   cursor: auto;
   box-shadow: 0 0 10px 0 #3333;
 }
 .profilebox .top {
-  display: flex; 
-  flex-direction: row;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 25px;
   width: 100%;
   height: 20%;
   border-bottom: 1px solid #3333;
 }
+.profilebox .top .profile-details{
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  width: 95%;
+  height: 80%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.profilebox .top .profile-details:hover{
+  background-color: #3331;
+  cursor: pointer;
+}
 .profilebox .top .img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: #3331;
   border-radius: 50%;
 }
@@ -310,20 +322,23 @@
 .profilebox .mid, .profilebox .mid2 {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
   width: 100%;
   height: 40%;
   border-bottom: 1px solid #3333;
 }
 .profilebox .mid>*,.profilebox .mid2>*{
-  padding:5px 0 5px 25px;
+  padding: 8px 0 8px 25px;
   display: flex;
+  width: 95%;
   flex-direction: row;
   font-size: 1.05rem;
+  border-radius: 5px;
 }
 .profilebox .mid>*:hover,.profilebox .mid2>*:hover{
   cursor: pointer;
-  background: #3333;
+  background: #3331;
 }
 
 .profilebox .mid2 .logout{
@@ -332,8 +347,7 @@
   align-items: center;
   padding:0;
   width: 90%;
-  height: 20%;
-  margin-left: 5%;
+  height: 23%;
   border-color: #ff4c51;
   background-color: #ff4c51;
   border-radius: 6px;
@@ -348,7 +362,121 @@
 
 
 /* Nav */
+.navPage{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.nav-cover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #3333;
+}
+.navBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 260px;
+  height: 100%;
+  padding-top: 5px;
+  background: white;
+}
+.navBar .nav-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+  width: 100%;
+  height: 10%;
+  min-height: 50px;
+  font-size: 1.2rem;
+  background: white;
+}
+.navBar .nav-head .logo{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3333;
+  cursor: pointer;
+}
+.navBar .nav-head h4{
+  padding: 0 0px 0 10px;
+  cursor: pointer;
+}
+.navBar .nav-head .closebtn{
+  margin-left: 40px;
+  cursor: pointer;
+  transform: scale(1,0.8);
+}
+.navBar .nav-body {
+  padding: 5px 0 0 10px;
+  width: 100%;
+  overflow: hidden scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #3335 white;
+}
+.navBar .nav-body>* {
+  width: 100%;
+  background-color: white;  
+}
+.navBar .nav-body>* .link{
+  padding-left: 15px;
+  font-size: 1.3rem;
+}
+.navBar .nav-body>* .link h5{
+  padding-left: 10px;
+  font-weight: 600;
+}
+.navBar .nav-body>* .link .arrow{
+  position: absolute;
+  left: 220px;
+  font-size: 1rem;  
+  transform: rotate(0deg);
+  transition: all .4s ease;
+}
+.navBar .nav-body>*:hover .arrow {
+  transition: all .4s ease;
+  transform: rotate(90deg);
+}
+.navBar .nav-body>* .link,.navBar .nav-body>* .options * {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  border-radius: 10px 0px 0 10px;
+  cursor: pointer;
+}
+.navBar .nav-body>* .link:hover,.navBar .nav-body>* .options *:hover {
+  background: #3333;
+}
+.navBar .nav-body>* .link:active,.navBar .nav-body>* .options *:active {
+  background: #3333;
+}
+.navBar .nav-body>* .link:focus,.navBar .nav-body>* .options *:focus {
+  background: #3333;
+}
 
+.navBar .nav-body>* .options  {
+  width: 100%;
+  height: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: all .6s ease;
+}
+.navBar .nav-body>*:hover .options{
+  transition: all .8s ease .2s;
+  max-height: 250px;
+}
+.navBar .nav-body>* .options *{
+  padding-left: 20px;
+  font-size: 1rem;
+}
 
 /* Footer */
 
@@ -427,3 +555,7 @@
 
 
 /* Account Settings Page */
+
+
+
+

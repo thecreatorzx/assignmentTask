@@ -14,11 +14,15 @@ import { Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 
 function App() {
+  const handleNavToggle = () => {
+    const nav = document.querySelector(".navPage");
+    nav.classList.toggle("hidden");
+  };
   return (
     <div className="App">
-      <Header />
-      {/* <Nav />
-      <Routes>
+      <Header handleNavToggle={handleNavToggle} />
+      <Nav handleNavToggle={handleNavToggle} />
+      {/* <Routes>
         <Route path="/" element={<Dashboard />} />
 
         <Route path="*" element={<ErrorPage />} />

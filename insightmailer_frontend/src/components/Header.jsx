@@ -2,26 +2,36 @@ import React from 'react'
 import { BsGrid, BsBell,BsSearch,BsLaptop } from "react-icons/bs";
 import { GiMoonBats,GiBoomerangSun } from "react-icons/gi";
 import { IoMailOpenOutline } from "react-icons/io5";
-const Header = () => {
+const Header = ({handleNavToggle}) => {
+  const handleToggle = (path) => {
+    let arr = ["searchbox","themebox","shortcutbox","notificationbox","profilebox"]
+    for(let x = 0; x<5;x++){
+      if(path != arr[x]){
+      document.querySelector(`.${arr[x]}`).classList.remove("hidden");
+      document.querySelector(`.${arr[x]}`).classList.add("hidden");}
+    }
+    let target = document.querySelector(`.${path}`)
+    target.classList.toggle("hidden");
+  }
   return (
     <div className='headerPage'>
-      <div className="nav-toggler">&#9776;</div>
+      <div className="nav-toggler" onClick={()=> handleNavToggle()}>&#9776;</div>
       <div className='header-options'>
-        <div className="search-button"><BsSearch />
-          <div className="searchbox">
+        <div className="search-button"><BsSearch onClick={()=>handleToggle("searchbox")}/>
+          <div className="searchbox hidden">
             <input type="search" name="searchbox" id="searchbox" placeholder='Search...' />
-            <div className="closebtn">x</div>
+            <div className="closebtn" onClick={()=> handleToggle("searchbox")}>x</div>
           </div>
         </div>
-        <div className="theme-switcher"><GiBoomerangSun />
-          <div className="themebox">
+        <div className="theme-switcher"><GiBoomerangSun  onClick={()=>handleToggle("themebox")}/>
+          <div className="themebox hidden">
             <div className="option"><GiBoomerangSun />Light</div>
             <div className="option"><GiMoonBats />Dark</div>
             <div className="option"><BsLaptop/>System</div>
           </div>
         </div>
-        <div className="shortcuts"><BsGrid/>
-          <div className="shortcutbox">
+        <div className="shortcuts"><BsGrid onClick={()=>handleToggle("shortcutbox")}/>
+          <div className="shortcutbox hidden">
             <div className="head">
               <div>Shortcuts</div>
               <div className="add">+</div>
@@ -60,8 +70,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="notification-bell"><BsBell/>
-          <div className="notificationbox">
+        <div className="notification-bell"><BsBell onClick={()=>handleToggle("notificationbox")}/>
+          <div className="notificationbox hidden">
             <div className="head">
               <h5>Notification</h5>
               <div className="status"></div>
@@ -81,12 +91,15 @@ const Header = () => {
           </div>
         </div>
         <div className="profile-button">
-          <div className="profilebox">
+          <div className="profile-cover" onClick={()=>handleToggle("profilebox")}></div>
+          <div className="profilebox hidden">
             <div className="top">
-              <div className="img"></div>
-              <div className="details">
-                <div className="name">Mohd Saad</div>
-                <div className="access">Admin</div>
+              <div className='profile-details'>
+                <div className="img"></div>
+                <div className="details">
+                  <div className="name">Mohd Saad</div>
+                  <div className="access">Admin</div>
+                </div>
               </div>
             </div>
             <div className="mid">
