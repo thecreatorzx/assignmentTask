@@ -22,12 +22,11 @@ function App() {
     <div className="App">
       <Header handleNavToggle={handleNavToggle} />
       <Nav handleNavToggle={handleNavToggle} />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Dashboard />} />
 
         <Route path="*" element={<ErrorPage />} />
-      </Routes> */}
-      <Footer />
+      </Routes>
     </div>
   );
 }
