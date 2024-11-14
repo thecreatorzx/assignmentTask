@@ -24,7 +24,7 @@ function App() {
       <Nav handleNavToggle={handleNavToggle} />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-
+        <Route path="/emailcampaign" element={<EmailCampaign />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

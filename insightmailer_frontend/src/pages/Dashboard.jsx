@@ -2,10 +2,16 @@ import React from 'react'
 import { FaPaperPlane,FaClock, FaEye, } from "react-icons/fa";
 import { LuMousePointerClick,warnin } from "react-icons/lu";
 import { MdError,MdWarning,MdUnsubscribe } from "react-icons/md";
+import { VscDebugBreakpointData } from "react-icons/vsc";
 import { Line, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js';
 import RecentActivityFeed from '../components/ActivityFeed';
 import Footer from '../components/Footer';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 ChartJS.register(LineElement, PointElement, LinearScale, Title, Tooltip, Legend, ArcElement, CategoryScale);
 
@@ -75,11 +81,53 @@ const deliveryBreakdownOptions = {
         }
     }
 }
+const slides = [
+    {
+      title: 'Campaign Insights',
+      content1: 'Sent : 5120',
+      content2: 'Scheduled : 2152',
+      imageUrl: '/assets/img4.png',
+    },
+    {
+      title: 'Track Progress',
+      content1: 'Clicked : 4562',
+      content2: 'Opened : 4152',
+      imageUrl: '/assets/img6.png',
+    },
+    {
+      title: 'Real-Time Stats',
+      content1: 'Bounced : 2132',
+      content2: 'Failed : 1121',
+      imageUrl: '/assets/img3.png',
+    },
+  ];
   return (
     <div className='dashboardPage'>
       <div className="dashboard">
-        <h1>Dashboard</h1>
-        <div className="kpi-carousel"></div>
+        <div className="kpi-carousel">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+           >
+            {slides.map((slide, index) => (
+              <SwiperSlide key={index} className="swiper">
+                <div className= "swiper-content" >
+                  <div className="content">
+                    <div className="head">{slide.title}</div>
+                    <div className="body"><img src={slide.imageUrl} alt={slide.title} style={{ transform:"translateY(-180px) scale(.5)",maxWidth: '100%', borderRadius: '8px' }} /></div>
+                    <div className="foot">
+                      <div className="first"><VscDebugBreakpointData />{slide.content1}</div>
+                      <div className="second"><VscDebugBreakpointData />{slide.content2}</div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
         <div className="kpi-cards">
           <div className="cards">
             <div className="top"><FaPaperPlane size={"3rem"}/></div>
